@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-lg-6">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          routerLinkActive="Active"
+          [routerLink]="['personal']"
+          >Personal</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="Active"
+          [routerLink]="['education']"
+          >Education</a
+        >
+      </li>
+    </ul>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem; position: relative; margin: 10%">
+  <ul class="list-group" *ngFor="let prod of ProductArray">
+    <li class="list-group-item"><b>ProductId</b>&ensp;{{ prod.productId }}</li>
+    <li class="list-group-item">
+      <b>ProductCode</b>&ensp;{{ prod.productCode }}
+    </li>
+    <li class="list-group-item">
+      <b>productName</b>&ensp;{{ prod.productName | uppercase }}
+    </li>
+    <li class="list-group-item">
+      <b>Price</b>&ensp;{{ prod.price | currency : "INR" }}
+    </li>
+  </ul>
+  <input
+    type="button"
+    name="redirect to directive page"
+    value="redirect to directive page"
+    id=""
+    (click)="redirectToDirective()"
+  />
+</div>

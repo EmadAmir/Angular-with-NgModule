@@ -1,0 +1,14 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .text-danger {
+    color: red;
+    font-size: 12px;
+  }
+  

@@ -1,0 +1,112 @@
+<div class="container">
+  <h2>Simple Template-driven Form</h2>
+
+  <!-- Create the form -->
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+    <!-- UserID Field -->
+    <div class="form-group">
+      <label for="UserID">UserID</label>
+      <input
+        type="number"
+        id="UserID"
+        class="form-control"
+        name="UserID"
+        ngModel
+        required
+      />
+
+      <!-- Show error if UserID is required but not filled -->
+      <div
+        *ngIf="
+          userForm.submitted &&
+          userForm.controls['UserID']?.invalid &&
+          userForm.controls['UserID']?.touched
+        "
+      >
+        <small class="text-danger">UserID is required.</small>
+      </div>
+    </div>
+
+    <!-- ID Field -->
+    <div class="form-group">
+      <label for="ID">ID</label>
+      <input
+        type="number"
+        id="ID"
+        class="form-control"
+        name="ID"
+        ngModel
+        required
+      />
+
+      <!-- Show error if ID is required but not filled -->
+      <div
+        *ngIf="
+          userForm.submitted &&
+          userForm.controls['ID']?.invalid &&
+          userForm.controls['ID']?.touched
+        "
+      >
+        <small class="text-danger">ID is required.</small>
+      </div>
+    </div>
+
+    <!-- Title Field -->
+    <div class="form-group">
+      <label for="Title">Title</label>
+      <input
+        type="text"
+        id="Title"
+        class="form-control"
+        name="Title"
+        ngModel
+        required
+      />
+
+      <!-- Show error if Title is required but not filled -->
+      <div
+        *ngIf="
+          userForm.submitted &&
+          userForm.controls['Title']?.invalid &&
+          userForm.controls['Title']?.touched
+        "
+      >
+        <small class="text-danger">Title is required.</small>
+      </div>
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group">
+      <label for="Description">Description</label>
+      <input
+        type="text"
+        id="Description"
+        class="form-control"
+        name="Description"
+        ngModel
+        required
+      />
+
+      <!-- Show error if Description is invalid -->
+      <div
+        *ngIf="
+          userForm.submitted &&
+          userForm.controls['Description']?.invalid &&
+          userForm.controls['Description']?.touched
+        "
+      >
+        <!-- Use bracket notation to access 'required' errors -->
+        <small
+          class="text-danger"
+          *ngIf="userForm.controls['Description']?.errors?.['required']"
+          >Description is required.</small
+        >
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <H5>{{ error | json }}</H5>
+</div>

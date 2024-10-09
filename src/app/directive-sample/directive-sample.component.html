@@ -1,0 +1,68 @@
+<p><b>directive-sample works!</b></p>
+
+<h4>*ngFor</h4>
+
+<div>
+  <select [(ngModel)]="selectedColor">
+    <option *ngFor="let c of color">
+      <p>
+        <b>{{ c }}</b>
+      </p>
+    </option>
+  </select>
+  <p>
+    <b>{{ selectedColor }}</b>
+  </p>
+</div>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Product Id</th>
+      <th>Product Code</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>like/unlike</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let prod of product"
+      [class]="prod.productId % 2 == 0 ? 'odd' : 'even'"
+      [style.background]="selectedColor"
+    >
+      <td>
+        <b>{{ prod.productId }}</b>
+      </td>
+      <td>
+        <b>{{ prod.productCode }}</b>
+      </td>
+      <td>
+        <b>{{ prod.productName }}</b>
+      </td>
+      <td>
+        <b>{{ prod.price }}</b>
+      </td>
+      <td><input type="button" value="like" [appFavs]="selectedColor" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>*ngIf</h4>
+
+<span>Enter a number : </span>
+<input type="text" [(ngModel)]="num" />
+
+<div *ngIf="num % 2 == 0; then ifblock; else elseblock"></div>
+
+<ng-template #ifblock>
+  <p><b>Number is Even</b></p>
+</ng-template>
+<ng-template #elseblock>
+  <p><b>Number is Odd</b></p>
+</ng-template>
+
+<div>
+  <h3>Url Parameters &ensp;: {{ id }}</h3>
+  <h3>Query String Parameters &ensp;: {{ city }} &ensp; {{ country }}</h3>
+</div>

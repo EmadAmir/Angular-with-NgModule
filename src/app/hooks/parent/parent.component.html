@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="pt-5">
+    <p class="label">Customer Name:</p>
+    <input type="text" class="col-lg-4" [(ngModel)]="customer.customerName" />
+  </div>
+  <div class="pt-1">
+    <p class="label">Customer ID:</p>
+    <input type="text" class="col-lg-4" [(ngModel)]="customer.customerId" />
+  </div>
+  <div class="pt-3">
+    <input type="submit" (click)="addCustomer()" />
+  </div>
+</div>
+<app-child
+  [customer-list]="customers"
+  [cname]="customer.customerName"
+></app-child>
+
+<app-projection>
+  <h2>This is a header</h2>
+  <p #p>
+    The testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe testThe testThe testThe testThe testThe testThe
+    testThe testThe testThe test
+  </p>
+</app-projection>

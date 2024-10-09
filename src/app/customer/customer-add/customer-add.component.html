@@ -1,0 +1,33 @@
+<p>customer-add works!</p>
+
+<div class="row">
+  <div class="col-lg-6">
+    <span>Enter Customer Name:</span>
+    <input type="text" [(ngModel)]="customerName" class="form-control" />
+    <br />
+    <br />
+
+    <input
+      type="button"
+      value="Add Customer"
+      (click)="addCustomer()"
+      class="btn btn-primary"
+    />
+    <br />
+    <br />
+    {{ customer | json }}
+
+    <p class="text-center" #divMessage></p>
+  </div>
+  <div class="col-lg-6">
+    <!-- This is using the @Input and @Output decorator -->
+    <!-- <app-customer-list
+      [customerList]="customer"
+      (onSelect)="renderName($event)"
+    ></app-customer-list> -->
+
+    <!-- This is using the @viewchild decorator -->
+
+    <app-customer-list #clistComp></app-customer-list>
+  </div>
+</div>
